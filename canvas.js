@@ -24,45 +24,33 @@ disks = [{ id: 1, length: 120, color: 'mediumblue' },
          { id: 5, length: 40, color: 'orange' }, 
          { id: 6, length: 20, color: 'red' }]
 
-let moves = [] // contains move objects with source rod and destination rod property
+let moves // contains move objects with source rod and destination rod property
 let aRod, bRod, cRod // arrays to save disks on each rod
 
 //============================== EVENT LISTENERS ==============================
 
 one.addEventListener('click', function () {
-  initDisks(1)
-  getMoves(1, 'A', 'B', 'C')
-  drawDisks()
+  init(1)
 })
 
 two.addEventListener('click', function () {
-  initDisks(2)
-  getMoves(2, 'A', 'B', 'C')
-  drawDisks()
+  init(2)
 })
 
 three.addEventListener('click', function () {
-  initDisks(3)
-  getMoves(3, 'A', 'B', 'C')
-  drawDisks()
+  init(3)
 })
 
 four.addEventListener('click', function () {
-  initDisks(4)
-  getMoves(4, 'A', 'B', 'C')
-  drawDisks()
+  init(4)
 })
 
 five.addEventListener('click', function () {
-  initDisks(5)
-  getMoves(5, 'A', 'B', 'C')
-  drawDisks()
+  init(5)
 })
 
 six.addEventListener('click', function () {
-  initDisks(6)
-  getMoves(6, 'A', 'B', 'C')
-  drawDisks()
+  init(6)
 })
 
 move.addEventListener('click', function () {
@@ -72,6 +60,13 @@ move.addEventListener('click', function () {
 })
 
 //============================== FUNCTIONS ==============================
+
+function init(numberOfDisks) {
+  moves = []
+  initDisks(numberOfDisks)
+  getMoves(numberOfDisks, 'A', 'B', 'C')
+  drawDisks()
+}
 
 function drawRods() {
   context.clearRect(0, 0, canvas.width, canvas.height)
